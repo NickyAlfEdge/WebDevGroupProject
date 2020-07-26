@@ -1,0 +1,58 @@
+<%- include('component/header') %>
+
+<br>
+<br>
+<br>
+<div class="container col-4">
+    <h1>Application List</h1>
+    <ul class="nav nav-tabs">
+        <li role="presentation"><a href="/admin/application_list_pending">Pending</a></li>
+        <li role="presentation" class="active"><a href="/admin/application_list_approved">Approved</a></li>
+        <li role="presentation"><a href="/admin/application_list_rejected">Rejected</a></li>
+    </ul>
+    <% if (applications.length == 0) { %>
+        <div class="alert alert-warning" role="alert">No application has been Approved</div>
+    <% } else { %>
+        <% for (let i = 0; i < applications.length; i++) { %>
+    <ul class="list-group">
+        <li class="list-group-item">
+            <div class="media">
+                <a href="/admin/application_detail?id=<%- applications[i]._id %>">
+                    <div class="media-left media-middle">
+                        <img class="media-object" src="<%= applications[i].animal.imgUrl %>" alt="No Image"
+                             style="width: 8em; height: 8em">
+                    </div>
+                    <div class="media-body">
+                        <h4 class="media-heading">Apply for&nbsp<%= applications[i].animal.name %>
+                            <% if (applications[i].animal.status == "Adopted") { %>
+                                <span class="label label-danger" style="float: right">Unavailable</span>
+                            <% } else { %>
+                                <span class="label label-success" style="float: right">Available</span>
+                            <% } %>
+                        </h4>
+                        <br>
+                        <table width="100%" style="table-layout:fixed; word-wrap: break-word">
+                            <tr>
+                                <td width="33%"><b>Pet Type:&nbsp</b><%= applications[i].animal.petType %></td>
+                                <td width="33%"><b>Pet Breed:&nbsp</b><%= applications[i].animal.petBreed %></td>
+                                <td width="33%"><b>Age:&nbsp</b><%= applications[i].animal.age %></td>
+                            </tr>
+                            <tr>
+                                <td>&nbsp</td>
+                            </tr>
+                            <tr>
+                                <td><b>Candidate Name:&nbsp</b><%= applications[i].candidate.firstname + ' ' + applications[i].candidate.surname %></td>
+                                <td><b>Candidate town:&nbsp</b><%= applications[i].town %></td>
+                            </tr>
+                        </table>
+                    </div>
+                </a>
+            </div>
+        </li>
+        <% } %>
+        <% } %>
+    </ul>
+</div>
+<br>
+<br>
+<br>

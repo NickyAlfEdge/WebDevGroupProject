@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Log In</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/stylesheets/login.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script src="/javascripts/login.js"></script>
+</head>
+<body>
+
+<div class="container">
+<!--    <form class="form-authorization" id="loginForm" method="post" action="/user_login" enctype="application/x-www-form-urlencoded">-->
+    <form class="form-authorization" id="loginForm">
+        <div class="text-center mb-4">
+            <a href="/"><img class="mb-4" src="/favicon.ico" alt="" width="72" height="72"></a>
+            <a class="nav-link" href="/"><h1 class="h3 mb-3 font-weight-normal">Pets Home</h1></a>
+            <p>Your love is important for us! 🦝🐸🐕‍🦺😸 </p>
+        </div>
+        <div class="form-label-group">
+            <input type="email" id="inputEmail" name="email" class="form-control" placeholder="Email address" required autofocus>
+            <label for="inputEmail">Email address</label>
+        </div>
+        <div class="form-label-group">
+            <input type="password" id="inputPassword" name="password" class="form-control" placeholder="Password" required>
+            <label for="inputPassword">Password</label>
+        </div>
+<!--        <div class="checkbox">-->
+<!--            <label>-->
+<!--                <input type="checkbox" value="remember-me"> Remember me-->
+<!--            </label>-->
+<!--        </div>-->
+        <div class="form-check form-check-inline mb-3">
+            <input class="form-check-input" type="radio" id="clientRadio" name="role"
+                   value="user" checked>
+            <label class="form-check-label" for="clientRadio">client</label>
+        </div>
+        <div class="form-check form-check-inline mb-3">
+            <input class="form-check-input" type="radio" id="adminRadio" name="role"
+                   value="admin">
+            <label class="form-check-label" for="adminRadio">admin</label>
+        </div>
+        <button class="btn btn-lg btn-primary btn-block" type="submit" onclick="login()">Sign in</button>
+    </form>
+</div>
+
+</body>
+</html>

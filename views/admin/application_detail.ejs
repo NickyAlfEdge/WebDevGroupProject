@@ -1,0 +1,92 @@
+<%- include('component/header') %>
+
+<br>
+<br>
+<br>
+<div class="container col-4">
+    <h1>Application for <%= application.animal.name %></h1>
+    <br>
+    <ul class="list-group">
+        <li class="list-group-item"><b>Candidate name:</b><%= " " + application.candidate.firstname + ' ' + application.candidate.surname %></li>
+        <li class="list-group-item"><b>Candidate Email:</b><%= " " + application.candidate.email %></li>
+        <li class="list-group-item"><b>Candidate telephone</b><%= " " + application.telephone %></li>
+        <li class="list-group-item"><b>Street:</b><%= " " + application.street %></li>
+        <li class="list-group-item"><b>Town:</b><%= " " + application.town %></li>
+        <li class="list-group-item"><b>Country:</b><%= " " + application.country %></li>
+        <li class="list-group-item"><b>Postcode:</b><%= " " + application.postcode %></li>
+        <li class="list-group-item"><b>Family member:</b><%= " " + application.family %></li>
+        <li class="list-group-item"><b>Owned animal:</b><%= " " + application.animalAlreadyHave %></li>
+        <li class="list-group-item"><b>Reason:</b><%= " " + application.reason %></li>
+        <li class="list-group-item"><b>Status:&nbsp</b>
+            <% if (application.status == "Pending") { %>
+                <span class="label label-warning">Pending</span>
+            <% } else if (application.status == "Approved") { %>
+                <span class="label label-success">Approved</span>
+            <% } else if (application.status == "Rejected") { %>
+                <span class="label label-danger">Rejected</span>
+            <% } %>
+        </li>
+    </ul>
+    <br>
+    <ul class="list-group">
+        <li class="list-group-item">
+            <div class="media">
+                <a href="/admin/pet_detail?id=<%- application.animal._id %>">
+                    <div class="media-left media-middle">
+                        <img class="media-object" src="<%= application.animal.imgUrl %>" alt="No Image"
+                             style="width: 8em; height: 8em">
+                    </div>
+                    <div class="media-body">
+                        <h4 class="media-heading"><%= application.animal.name %>
+                            <% if (application.animal.status == "Adopted") { %>
+                                <span class="label label-danger" style="float: right">Unavailable</span>
+                            <% } else { %>
+                                <span class="label label-success" style="float: right">Available</span>
+                            <% } %>
+                        </h4>
+                        <br>
+                        <table width="100%" style="table-layout:fixed; word-wrap: break-word">
+                            <tr>
+                                <td width="33%"><b>Pet Type:&nbsp</b><%= application.animal.petType %></td>
+                                <td width="33%"><b>Pet Breed:&nbsp</b><%= application.animal.petBreed %></td>
+                                <td width="33%"><b>Age:&nbsp</b><%= application.animal.age %></td>
+                            </tr>
+                        </table>
+                        <br>
+                        <p><b>Detail:&nbsp</b><%= application.animal.detail.substring(0, 200) + "..." %></p>
+                    </div>
+                </a>
+            </div>
+        </li>
+    </ul>
+    <br>
+    <div style="text-align: center">
+        <% if (application.status == "Pending") { %>
+            <a href="/admin/approve_application?id=<%- application._id %>">
+                <button type="button" class="btn btn-success" style="width: 8em"
+                <% if (application.animal.status == "Adopted") { %>
+                    <%- disabled = "disabled" %>
+                        <% } %>
+                >Approve
+                </button>
+            </a>
+            <a href="/admin/reject_application?id=<%- application._id %>">
+                <button type="button" class="btn btn-danger" style="width: 8em">Reject</button>
+            </a>
+        <% } else if (application.status == "Approved") { %>
+            <a href="/admin/approved_to_pending?id=<%- application._id %>">
+                <button type="button" class="btn btn-warning" style="width: 8em">Pending</button>
+            </a>
+        <% } else if (application.status == "Rejected") { %>
+            <a href="/admin/rejected_to_pending?id=<%- application._id %>">
+                <button type="button" class="btn btn-warning" style="width: 8em">Pending</button>
+            </a>
+        <% } %>
+    </div>
+    <br>
+    <br>
+    <br>
+</div>
+
+</body>
+</html>

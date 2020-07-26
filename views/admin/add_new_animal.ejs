@@ -1,0 +1,100 @@
+<%- include('component/header') %>
+
+<br>
+<br>
+<br>
+<div class="container col-4">
+    <h1 class="my-5" style="text-align: center"> Add New Animal</h1>
+    <p style="color: red; text-align: center">All input are required, if you do not know, please enter No or None!</p>
+
+    <!--    <form id="xForm" onsubmit="onSubmit()" enctype="multipart/form-data" method="POST">-->
+    <!--        <label for='firstname'>First name:</label>-->
+    <!--        <input type="text" name="firstname" id="firstname">-->
+    <!--        <p><label for='lastname'>Last name:</label>-->
+    <!--            <input type="text" name="lastname" id="lastname">-->
+    <!--        </p>-->
+    <!--        <p><label for='year'>Year of Birth:</label>-->
+    <!--            <input type="number" name="year" id="year">-->
+    <!--        </p>-->
+
+    <!--        <p><input type="submit" name="g" value="Submit" id="g"></p>-->
+    <!--    </form>-->
+    <!--    <div id="results" style="margin-top:30px"></div>-->
+    <form id="xForm" onsubmit="addNewAnimal()" enctype="multipart/form-data" method="post">
+        <div class="form-group">
+            <label for="name">Name:</label>
+            <input id="name" class="form-control" name="name" type="text" required="required" />
+        </div>
+        <label for="animalImage">Choose an image</label>
+        <div >
+            <input type="file" id="animalImage" name="animalImage" accept="image/*" required>
+        </div>
+        <div class="form-group">
+            <label for="dob">Birthday:</label>
+            <input id="dob" class="form-control" name="dob" type="date" required="required">
+        </div>
+        <div class="form-group">
+            <label for="petType">Pets Type:</label>
+            <select name="petType" id="petType" class="form-control" updateSubSelector(this), onchange="updateSubSelector(this)">
+                <!--                <option value="" selected>Any type</option>-->
+                <% for (const petType of petTypes){ %>
+                    <option value="<%= petType.typeName %>"><%= petType.typeName %></option>
+                <% } %>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="petBreed">Pets Breed</label>
+            <select name="petBreed" id="petBreed" class="form-control">
+                <% for (const breed of petTypes[0].petBreed){ %>
+                    <option value="<%= breed %>"><%= breed %></option>
+                <% } %>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="owner">Owner:</label>
+            <input id="owner" class="form-control" name="owner" type="text" required="required">
+        </div>
+        <div class="form-group">
+            <label for="telephone">telephone (only number):</label>
+            <input id="telephone" class="form-control" name="telephone" type="text" oninput = "value=value.replace(/[^\d]/g,'')" required="required">
+        </div>
+        <div class="form-group">
+            <label for="street">Street:</label>
+            <input id="street" class="form-control" name="street" type="text" required="required">
+        </div>
+        <div class="form-group">
+            <label for="town">Town:</label>
+            <input id="town" class="form-control" name="town" type="text" required="required">
+        </div>
+        <div class="form-group">
+            <label for="country">Country:</label>
+            <input id="country" class="form-control" name="country" type="text" required="required">
+        </div>
+        <div class="form-group">
+            <label for="postcode">Postcode:</label>
+            <input id="postcode" class="form-control" name="postcode" type="text" required="required">
+        </div>
+        <div class="form-group">
+            <label for="detail">Detail:</label>
+            <textarea rows="6" id="detail" class="form-control" name="detail" type="text" required="required"></textarea>
+        </div>
+        <p><input type="submit" name="g" value="Submit" id="g"></p>
+    </form>
+</div>
+<br>
+<br>
+<br>
+
+</body>
+
+<!--pet breed selection options-->
+<% for (const petType of petTypes){ %>
+    <div id="<%= petType.typeName %>" hidden>
+        <!--        <option value="" selected>Any breed</option>-->
+        <% for (const breed of petType.petBreed){ %>
+            <option value="<%= breed %>"><%= breed %></option>
+        <% } %>
+    </div>
+<% } %>
+
+</html>

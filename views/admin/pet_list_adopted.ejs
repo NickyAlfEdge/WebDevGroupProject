@@ -1,0 +1,48 @@
+<%- include('component/header') %>
+
+<br>
+<br>
+<br>
+<div class="container col-4">
+    <h1>Pet List<a href="/admin/add_new_animal"><button class="btn btn-success" style="float: right">add</button></a></h1>
+    <ul class="nav nav-tabs">
+        <li role="presentation"><a href="/admin/pet_list_waiting">waiting</a></li>
+        <li role="presentation" class="active"><a href="/admin/pet_list_adopted">adopted</a></li>
+    </ul>
+    <% if (animals.length == 0) { %>
+        <div class="alert alert-warning" role="alert">No animal has been adopted</div>
+    <% } else { %>
+        <% for (let i = 0; i < animals.length; i++) { %>
+    <ul class="list-group">
+        <li class="list-group-item">
+            <div class="media">
+                <a href="/admin/pet_detail?id=<%- animals[i]._id %>">
+                    <div class="media-left media-middle">
+                        <img class="media-object" src="<%= animals[i].imgUrl %>" alt="No Image" style="width: 8em; height: 8em">
+                    </div>
+                    <div class="media-body">
+                        <h4 class="media-heading"><%= animals[i].name%></h4>
+                        <br>
+                        <table width="100%" style="table-layout:fixed; word-wrap: break-word">
+                            <tr>
+                                <td width="33%"><b>Pet Type:&nbsp</b><%= animals[i].petType %></td>
+                                <td width="33%"><b>Pet Breed:&nbsp</b><%= animals[i].petBreed %></td>
+                                <td width="33%"><b>Age:&nbsp</b><%= animals[i].age %></td>
+                            </tr>
+                        </table>
+                        <br>
+                        <p><b>Detail:&nbsp</b><%= animals[i].detail.substring(0,200) + "..." %></p>
+                    </div>
+                </a>
+            </div>
+        </li>
+        <% } %>
+        <% } %>
+    </ul>
+</div>
+<br>
+<br>
+<br>
+
+</body>
+</html>

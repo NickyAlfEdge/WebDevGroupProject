@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Sign Up</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/stylesheets/sign_up.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script src="/javascripts/mycommon.js"></script>
+    <script src="/javascripts/sign_up.js"></script>
+</head>
+<body>
+
+<div class="container my-5">
+    <div class="row justify-content-end">
+        <div class="col-md-7">
+            <h1 class="display-4 font-italic font-weight-light">Register and find your love</h1>
+            <h1 class="display-4 font-italic font-weight-light ml-5">at PetsHome 💖😸🐶</h1>
+        </div>
+        <div class="col-md-4 my-5">
+            <form class="form-authorization" id="signUpForm" method="post" enctype="application/x-www-form-urlencoded">
+                <div class="text-center mb-4">
+                    <a href="/"><img class="mb-4" src="/favicon.ico" alt="" width="72" height="72"></a>
+                    <a class="text-decoration-none" href="/"><h1 class="h3 mb-3 font-weight-normal">Pets Home</h1>
+                    </a>
+                    <p>Your love is important for us! 🦝🐸🐕‍🦺😸 </p>
+                </div>
+                <div class="form-label-group">
+                    <input type="text" id="firstname" name="firstname" class="form-control rounded-pill"
+                           placeholder="Forename" required autofocus>
+                    <label for="firstname">Forename</label>
+                </div>
+                <div class="form-label-group">
+                    <input type="text" id="surname" name="surname" class="form-control rounded-pill"
+                           placeholder="Surname" required>
+                    <label for="surname">Surname</label>
+                </div>
+                <div class="form-label-group">
+                    <input type="email" id="inputEmail" name="email" class="form-control rounded-pill"
+                           placeholder="Email address"
+                           required>
+                    <label for="inputEmail">Email address</label>
+                </div>
+                <div class="form-label-group">
+                    <input type="password" id="inputPassword" name="password" class="form-control rounded-pill"
+                           placeholder="Password" required>
+                    <label for="inputPassword">Password</label>
+                </div>
+                <div class="row justify-content-center">
+                    <button class="btn btn-lg btn-success rounded-pill px-lg-5" type="submit">Sign
+                        up
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

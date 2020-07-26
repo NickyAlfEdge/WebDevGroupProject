@@ -1,0 +1,11 @@
+body {
+    background-color: rgba(63, 81, 181, 0.9);
+    background-image: url("../images/dog-1532627.png");
+    background-repeat: no-repeat;
+    background-size: 60%;
+    background-position: 10%;
+}
+
+.fillPage {
+    height: available;
+}

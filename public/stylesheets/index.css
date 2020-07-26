@@ -1,0 +1,71 @@
+body {
+    font-style: italic;
+}
+
+div.dropdown-menu {
+    background-color: #3f51b5;
+    color: white;
+}
+
+div.dropdown-menu > a {
+    font-family: Arial, sans-serif;
+    font-style: normal;
+    color: white;
+    font-size: .81rem;
+    text-transform: uppercase;
+    font-weight: 400;
+}
+
+.card-text {
+    color: #3f51b5;
+    font-size: 0.9rem;
+}
+
+.card:hover {
+    cursor: pointer;
+}
+
+.embed-responsive-3by2::before {
+    padding-top: 66.66%;
+}
+
+.embed-responsive .card-img-top {
+    object-fit: cover;
+}
+
+.card {
+    font-weight: 400;
+    border: 0;
+    -webkit-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+}
+
+.navbar-collapse {
+    flex-grow: 0;
+}
+
+.display-4 {
+    font-size: 2.5rem;
+}
+
+.font-italic {
+    font-style: italic !important;
+}
+
+footer {
+    padding-top: 2.5rem;
+    padding-bottom: 2.5rem;
+}
+
+footer p {
+    color: #fff;
+    margin-bottom: .25rem;
+}
+
+footer a {
+    color: rgba(255, 255, 255, .5);
+}
+
+footer a:hover {
+    color: rgba(255, 255, 255, 0.8);
+}

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Thank You</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/stylesheets/common.css">
+    <link rel="stylesheet" href="/stylesheets/index.css">
+    <link rel="stylesheet" href="/stylesheets/thanks.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script src="/javascripts/mycommon.js"></script>
+    <script src="/javascripts/index_page.js"></script>
+</head>
+<body>
+<header class="mb-5">
+    <%- include('header') %>
+</header>
+<main>
+    <div class="container-fluid">
+        <div class="row justify-content-center min-vh-100">
+            <div class="d-flex flex-column h-100">
+                <div class="row justify-content-center">
+                    <div class="col-auto my-5">
+                        <div class="container-fluid align-content-end">
+                            <br>
+                            <br>
+                            <h1 class="display-4 font-italic font-weight-light">Thank you <% user.name %>, from all of us</h1>
+                            <h1 class="display-4 font-italic font-weight-light ml-5">at PetsHome 💖😸🐶</h1>
+                            <br>
+                            <p class="display-4 font-italic font-weight-light">Your application will be processed shortly.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="thanksImg col-auto">
+                        <div class="container">
+                        </div>
+                    </div>
+                </div>
+                <div class="row justify-content-center bg-blue flex-grow-1">
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<footer class="text-muted bg-indigo" id="footer">
+    <%- include('footer') %>
+</footer>
+</body>
+</html>

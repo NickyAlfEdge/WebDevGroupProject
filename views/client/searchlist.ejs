@@ -1,0 +1,31 @@
+<div class="row animal">
+    <% if (animals.length == 0){ %>
+        <div class="col-12 alert alert-info text-center" role="alert">
+            No more lovely spirits...
+        </div>
+    <% } %>
+    <% for( const animal of animals){ %>
+        <div class="col-lg-4 col-md-12 mb-4">
+            <!--Card-->
+            <div class="card" onclick="openDetail(this)" data-href="/animal/detail/<%= animal._id %>">
+                <!--Card image-->
+                <div class="embed-responsive embed-responsive-3by2">
+                    <img src="<%= animal.imgUrl[0] %>"
+                         class="card-img-top embed-responsive-item" alt="<%= animal.petType %>">
+                </div>
+                <!--Card content-->
+                <div class="card-body">
+                    <p class="card-text"><i class="far fa-clock"></i>
+                        Updated <%= animal.intervalFromLastUpdate %> ago</p>
+                    <!--pet name-->
+                    <h4 class="card-title"><%= animal.name %></h4>
+                    <!--pet brief-->
+                    <p class="card-text"><%= animal.petType %><span
+                                class="float-right"><%= animal.petBreed %></span></p>
+                </div>
+            </div>
+            <!--/.Card-->
+        </div>
+    <% } %>
+    <p class="pagination" data-pageNum="<%= pageNum %>" data-totalPage="<%= totalPage %>" hidden></p>
+</div>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+<!--    <meta charset="utf-8">-->
+<!--    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">-->
+<!--    &lt;!&ndash; Latest compiled and minified CSS &ndash;&gt;-->
+<!--&lt;!&ndash;    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">&ndash;&gt;-->
+
+<!--    &lt;!&ndash; jQuery library &ndash;&gt;-->
+<!--    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>-->
+
+<!--    &lt;!&ndash; Popper JS &ndash;&gt;-->
+<!--&lt;!&ndash;    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>&ndash;&gt;-->
+
+<!--    &lt;!&ndash; Latest compiled JavaScript &ndash;&gt;-->
+<!--&lt;!&ndash;    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>&ndash;&gt;-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+            crossorigin="anonymous"></script>
+</head>
+<body>
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Admin Dashboard</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#">Pets <span class="sr-only">(current)</span></a></li>
+                <li><a href="#">Applications</a></li>
+            </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                <p class="navbar-text">Admin: user Name</p>
+                <li><a href="#">Log out</a></li>
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+</nav>
+
+
+<div class="container col-4">
+    <h1>Pet List<button class="btn btn-success" style="float: right">add</button> </h1>
+    <ul class="nav nav-tabs">
+        <li role="presentation"><a href="#">unadopted</a></li>
+        <li role="presentation" class="active"><a href="#">adopted</a></li>
+    </ul>
+    <ul class="list-group">
+        <li class="list-group-item">
+            <div class="media">
+                <a href="#">
+                    <div class="media-left media-middle">
+                            <img class="media-object" src="../../public/images/dog.jpg" alt="..." style="width: 8em; height: 8em">
+                    </div>
+                    <div class="media-body">
+                        <h4 class="media-heading">Middle aligned media</h4>
+                        ...
+                    </div>
+                </a>
+            </div>
+        </li>
+        <li class="list-group-item">
+            <div class="media">
+                <a href="#">
+                    <div class="media-left media-middle">
+                        <img class="media-object" src="" alt="No Image" style="width: 8em; height: 8em">
+
+                    </div>
+                    <div class="media-body">
+                        <h4 class="media-heading">Middle aligned media</h4>
+                        ...
+                    </div>
+                </a>
+            </div>
+        </li>
+        <li class="list-group-item">
+            <div class="media">
+                <a href="#">
+                    <div class="media-left media-middle">
+                        <img class="media-object" src="../../public/images/dog.jpg" alt="..." style="width: 8em; height: 8em">
+
+                    </div>
+                    <div class="media-body">
+                        <h4 class="media-heading">Middle aligned media</h4>
+                        ...
+                    </div>
+                </a>
+            </div>
+        </li>
+    </ul>
+</div>
+
+</body>
+</html>

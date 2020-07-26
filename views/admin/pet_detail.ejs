@@ -1,0 +1,91 @@
+<%- include('component/header') %>
+
+<br>
+<br>
+<br>
+<div class="container col-4">
+    <table width="100%">
+        <td><h1><%= animal.name%></h1></td>
+        <td><img class="media-object" src="<%- animal.imgUrl%>" alt="No Image"
+                 style="width: 15em; height: 15em; float: right"></td>
+    </table>
+    <br>
+    <ul class="list-group">
+        <li class="list-group-item"><b>Data of birth:</b><%= " " + animal.dob.toISOString().replace(/T.*/,' ') %></li>
+        <li class="list-group-item"><b>Pet type:</b><%= " " + animal.petType %></li>
+        <li class="list-group-item"><b>Pet breed:</b><%= " " + animal.petBreed %></li>
+        <li class="list-group-item"><b>Street:</b><%= " " + animal.street %></li>
+        <li class="list-group-item"><b>Town:</b><%= " " + animal.town %></li>
+        <li class="list-group-item"><b>Country:</b><%= " " + animal.country %></li>
+        <li class="list-group-item"><b>Post code:</b><%= " " + animal.postcode %></li>
+        <li class="list-group-item"><b>Owner before:</b><%= " " + animal.owner %></li>
+        <li class="list-group-item"><b>Owner Telephone:</b><%= " " + animal.telephone %></li>
+        <li class="list-group-item"><b>Adopter:</b>
+            <% if (animal.adopter == "undefined") { %>
+                <% "None" %>
+            <% } else { %>
+                <%= animal.adopter %>
+            <% } %>
+        </li>
+        <li class="list-group-item"><b>Status:&nbsp</b>
+            <% if (animal.status == "Waiting") { %>
+                <span class="label label-danger">Waiting</span>
+            <% } else if (animal.status == "Applied") { %>
+                <span class="label label-warning">Applied</span>
+            <% } else if (animal.status == "Adopted") { %>
+                <span class="label label-success">Adopted</span>
+            <% } %>
+        </li>
+    </ul>
+    <br>
+    <div class="panel panel-default">
+        <div class="panel-heading">detail</div>
+        <div class="panel-body">
+            <%= animal.detail %>
+        </div>
+    </div>
+    <br>
+    <% if (animal.comment.length == 0) { %>
+        <div class="alert alert-warning" role="alert">No comment yet!</div>
+    <% } else { %>
+        <table class="table table-striped" width="100%" style="table-layout:fixed; word-wrap: break-word">
+            <thead>
+            <tr>
+                <th width="5%">#</th>
+                <th width="10%">User Name</th>
+                <th width="70%">Comment</th>
+                <th width="15%">Time</th>
+            </tr>
+            </thead>
+            <tbody>
+            <% let j = 1; %>
+            <% for (let i = 0 ; i < animal.comment.length; i++) { %>
+            <tr>
+                <td><%= j %></td>
+                <td><%= animal.comment[i].name %></td>
+                <td><%= animal.comment[i].comment %></td>
+                <td><%= animal.comment[i].date.toISOString().replace(/T.*/,' ') + animal.comment[i].date.toLocaleTimeString().replace(/ G.*/,"") %></td>
+            </tr>
+            <% } %>
+            </tbody>
+        </table>
+    <% } %>
+    <br>
+    <form class="form-horizontal" style="width: 100%; text-align: center" action="/admin/add_comment?id=<%= animal._id %>" method="post">
+        <div class="form-group">
+            <label for="comment" class="col-sm-2 control-label">Make a comment</label>
+            <div class="col-sm-8">
+                <textarea rows="6" class="form-control form-control" id="comment" name="comment"></textarea>
+            </div>
+        </div>
+        <button type="submit" value="Submit" class="btn btn-primary sub-reply" style="align-content: center">
+            Comment
+        </button>
+    </form>
+    <br>
+    <br>
+    <br>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Pets Home</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/stylesheets/common.css">
+    <link rel="stylesheet" href="/stylesheets/index.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script src="/javascripts/mycommon.js"></script>
+    <script src="/javascripts/similarresult.js"></script>
+</head>
+<body>
+<header class="mb-5">
+    <%- include('header') %>
+</header>
+<main>
+    <div class="container mb-5">
+        <!--search area-->
+        <div class="row">
+            <div class="col-lg-8 col-sm-12 mb-3">
+                <img src="/images/friends-1149841_640.jpg" class="img-fluid">
+            </div>
+            <div class="col-lg-4 mb-3">
+                <h4 class="mb-5 display-4 font-italic">
+                    Find the love of your life ❤
+                </h4>
+                <form class="mb-5" id="searchForm">
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="petType">Pets Type</label>
+                            <select name="petType" id="petType" class="form-control" onchange="updateSubSelector(this)">
+                                <option value="" selected>Any type</option>
+                                <% for (const petType of petTypes){ %>
+                                    <option value="<%= petType.typeName %>"><%= petType.typeName %></option>
+                                <% } %>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="petBreed">Pets Breed</label>
+                            <select name="petBreed" id="petBreed" class="form-control">
+                                <option value="" selected>Any breed</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="name">Name</label>
+                            <input name="name" id="name" type="text" class="form-control" placeholder="White cat">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="postcode">Postcode</label>
+                            <input type="text" class="form-control" id="postcode"
+                                   name="postcode" placeholder="S10 2TN">
+                        </div>
+                    </div>
+                    <div class="form-row justify-content-end">
+                        <button id="submit" type="submit" class="btn btn-indigo">Search</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <!--./search area-->
+        <!--display title-->
+        <div class="row m-2" id="contentTitleDiv">
+            <h4 id="contentTitle" class="display-4 font-italic">Similar Pets Info</h4>
+        </div>
+        <!--./display title-->
+        <!--display content-->
+        <div class="row animal">
+            <% for( const animal of animals){ %>
+                <div class="col-lg-4 col-md-12 mb-4">
+                    <!--Card-->
+                    <div class="card" onclick="openDetail(this)" data-href="/animal/detail/<%= animal._id %>">
+                        <!--Card image-->
+                        <div class="embed-responsive embed-responsive-3by2">
+                            <img src="<%= animal.imgUrl[0] %>"
+                                 class="card-img-top embed-responsive-item" alt="<%= animal.petType %>">
+                        </div>
+                        <!--Card content-->
+                        <div class="card-body">
+                            <p class="card-text"><i class="far fa-clock"></i>
+                                Updated <%= animal.intervalFromLastUpdate %> ago</p>
+                            <!--pet name-->
+                            <h4 class="card-title"><%= animal.name %></h4>
+                            <!--pet brief-->
+                            <p class="card-text"><%= animal.petType %><span
+                                        class="float-right"><%= animal.petBreed %></span></p>
+                        </div>
+                    </div>
+                    <!--/.Card-->
+                </div>
+            <% } %>
+            <p class="pagination" data-pageNum="<%= pageNum %>" data-totalPage="<%= totalPage %>" hidden></p>
+        </div>
+        <!--display content-->
+        <div id="loadSpinner" class="row justify-content-center" style="display: none">
+            <div class="spinner-grow spinner-grow-sm text-primary" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+            <div class="spinner-grow spinner-grow-sm text-secondary" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+            <div class="spinner-grow spinner-grow-sm text-success" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+            <div class="spinner-grow spinner-grow-sm text-danger" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+            <div class="spinner-grow spinner-grow-sm text-warning" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+            <div class="spinner-grow spinner-grow-sm text-info" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+            <div class="spinner-grow spinner-grow-sm text-light" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+            <div class="spinner-grow spinner-grow-sm text-dark" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+    </div>
+</main>
+
+<footer class="text-muted bg-indigo" id="footer">
+    <%- include('footer') %>
+</footer>
+<!--pet breed selection options-->
+<% for (const petType of petTypes){ %>
+    <div id="<%= petType.typeName %>" hidden>
+        <option value="" selected>Any breed</option>
+        <% for (const breed of petType.petBreed){ %>
+            <option value="<%= breed %>"><%= breed %></option>
+        <% } %>
+    </div>
+<% } %>
+</body>
+</html>
